@@ -1,0 +1,10 @@
+import express from "express"
+
+const server = express()
+
+server.get("/", (req, res) =>{
+    res.send("you just send a request")
+})
+server.listen(5000, () =>{
+    console.log("servr is working")
+})

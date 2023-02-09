@@ -1,0 +1,61 @@
+import path from "path"
+import os from "os"
+import fs from "fs"
+import events from "events"
+import http from "http"
+
+//console.log(path.join(path.resolve(), "/test.js"))
+
+// console.log(os.totalmem())
+
+//fs.rmdir(`${path.resolve()}/newDir`, (err, res) =>{
+//    if(err){
+//        console.log(err)
+//    }else{
+//        console.log("folder deleted")
+//    }
+//})
+
+//fs.readFile(`${path.resolve()}/test.txt`, "UTF-8", (err, result) =>{
+    //if(err){
+    //    console.log(err)
+    //}else{
+    //    console.log(result)
+    //}
+//})
+
+
+//fs.appendFile(`${path.resolve()}/test.txt`, "and again hello world", (err, result) =>{
+//    if(err){
+//       console.log(err)
+//    }else{
+//        console.log("sucessfully append")
+//    }})
+
+//fs.copyFile(`${path.resolve()}/test.txt`,  `${path.resolve()}/newDir/test.txt`, (err) =>{
+//    if(err){
+//       console.log(err)
+//    }else{
+//        console.log("sucessfully copied")
+//    }})
+//
+//    fs.unlink(`${path.resolve()}/test.txt`, (err) =>{
+//        if(err){
+//           console.log(err)
+//        }else{
+//            console.log("sucessfully deleted")
+//        }})
+
+const eventAttach = new events.EventEmitter()
+
+eventAttach.addListener("onclick", function(){
+    console.log("you click me")
+})
+
+eventAttach.emit("onclick")
+
+const server = http.createServer(function(req, res){
+    console.log(req.method)
+})
+
+server.listen(8000)
